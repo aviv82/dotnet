@@ -27,15 +27,12 @@
 
             Console.WriteLine(midWord);
 
-
             var newWord = originalWord[originalWord.Length - 1] + midWord + originalWord[0];
 
             Console.WriteLine(newWord);
-
-
             Console.ReadLine();
 
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
