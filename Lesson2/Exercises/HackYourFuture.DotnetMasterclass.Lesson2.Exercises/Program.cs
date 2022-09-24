@@ -7,14 +7,14 @@ time.Minutes = 40;
 
 //Console.WriteLine(time.PrintTime);
 
-time.PrintTime();
+PrintTime(time);
+//time.PrintTime();
 
-/*
 void PrintTime(JupiterTime time)
 {
-    Console.WriteLine(time.Hours);
+    Console.WriteLine($"{time.Hours}:{time.Minutes}");
 }
-*/
+
 
 Console.ReadLine();
 
@@ -31,9 +31,10 @@ public class JupiterTime
         get;
     }
 
-
+    /*
     public void PrintTime()
     {
         Console.WriteLine($"{Hours}:{Minutes}");
-    } 
+    }
+    */
 }
