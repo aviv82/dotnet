@@ -1,8 +1,10 @@
 ﻿using System;
+using Humanizer;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace HackYourFuture.DotnetMasterclass.Lesson3.NuGetPackages
 {
@@ -14,15 +16,15 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.NuGetPackages
         public void PrintTimestampsInHumanReadableFormat()
         {
             // Print the timestamp as weeks
-            var firstTimespan = TimeSpan.FromSeconds(1123453978);
+            var firstTimespan = TimeSpan.FromSeconds(1123453978).Humanize();
             Console.WriteLine(firstTimespan);
 
             // Print this time in French words
-            var time = TimeSpan.FromDays(7);
+            var time = TimeSpan.FromDays(7).Humanize();
             Console.WriteLine(time);
 
             // Print the number in Romand numerals
-            var number = 4;
+            var number = 4.ToRoman();
             Console.WriteLine(number);
         }
     }
