@@ -47,7 +47,28 @@ time.PrintTime();
 
 Console.ReadLine();
 
+public class JupiterTime
+{
 
+    public JupiterTime(int hours, int minutes)
+    {
+        int totalMinutes = hours * 60 + minutes;
+        int totalHours = (totalMinutes - Minutes) / 60;
+        Hours = totalHours % 10;
+        Minutes = totalMinutes % 60;
+    }
+
+    public int Hours { get; set; }
+    public int Minutes { get; set; }
+
+    public void PrintTime()
+    {
+        Console.WriteLine($"{Hours}:{Minutes}");
+    }
+}
+
+
+/*
 public class JupiterTime
 {
     public JupiterTime(int hours, int minutes)
@@ -55,6 +76,12 @@ public class JupiterTime
         Hours = hours;
         Minutes = minutes;
     }
+
+    public int Hours { get;  set; }
+    public int Minutes { get; set; }
+
+
+    /*
     public int Hours {
         get
         {
@@ -63,8 +90,9 @@ public class JupiterTime
         set
         {
             if (value > 10)
-            
-                Hours = value - 10;
+
+                Hours = 2;
+            else Hours = value;
             
         }
     }
@@ -78,16 +106,19 @@ public class JupiterTime
         {
             if (value >= 60)
 
-                Minutes = value - 60;
+                Minutes = 3;
             //Hours = Hours + 1;
+            else Minutes = value;
 
         }
     }
 
+    
     public void PrintTime()
     {
         Console.WriteLine($"{Hours}:{Minutes}");
     }
 }
+*/
 
 
