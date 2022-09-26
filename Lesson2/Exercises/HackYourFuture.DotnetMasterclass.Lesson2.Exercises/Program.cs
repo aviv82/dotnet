@@ -42,7 +42,9 @@ public class JupiterTime
     */
 
 var time = new JupiterTime(2, 20);
-var timeIn1Hour = time.AddHours(1);
+//var timeIn1Hour = time.ChangeHours(-888);
+var timeIn20Minutes = time.ChangeMinutes(-140);
+
 
 time.PrintTime();
 
@@ -62,14 +64,36 @@ public class JupiterTime
     public int Hours { get; set; }
     public int Minutes { get; set; }
 
-    public int AddHours(int toAdd)
+    public int ChangeHours(int toChange)
     {
-        return Hours = Hours + toAdd;
+        if (toChange < 0)
+        {
+            if (Hours + toChange < 0)
+            {
+                return Hours = (10 + (Hours + (toChange%10))) % 10;
+            }
+            else return Hours = (Hours + toChange) % 10;
+        }else 
+        return Hours = (Hours + toChange)%10;
+    }
+    
+    public int ChangeMinutes(int toChange)
+    {
+        int totalMinutes = Hours * 60 + Minutes;
+        int newTotalMinutes = totalMinutes + toChange%60;
+        int newMinutes = newTotalMinutes % 60;
+        //int newHours = (newTotalMinutes - newMinutes)/60;
+        //ChangeHours(Hours+ ((newTotalMinutes - newMinutes)/60));
+        return Minutes = newMinutes;
     }
 
     public void PrintTime()
     {
-        Console.WriteLine($"{Hours}:{Minutes}");
+        if (Minutes < 10) {
+            Console.WriteLine($"0{Hours}:0{Minutes}");
+        }
+        else Console.WriteLine($"{Hours}:{Minutes}");
+
     }
 }
 
