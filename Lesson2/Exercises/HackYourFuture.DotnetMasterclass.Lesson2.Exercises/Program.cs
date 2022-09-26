@@ -41,7 +41,8 @@ public class JupiterTime
 }
     */
 
-var time = new JupiterTime(14, 88);
+var time = new JupiterTime(2, 20);
+var timeIn1Hour = time.AddHours(1);
 
 time.PrintTime();
 
@@ -60,6 +61,11 @@ public class JupiterTime
 
     public int Hours { get; set; }
     public int Minutes { get; set; }
+
+    public int AddHours(int toAdd)
+    {
+        return Hours = Hours + toAdd;
+    }
 
     public void PrintTime()
     {
