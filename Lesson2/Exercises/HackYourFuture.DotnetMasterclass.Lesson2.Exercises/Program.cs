@@ -12,7 +12,7 @@ var timeIn20Minutes = time.ChangeMinutes(-739);
 //Console.WriteLine(time);
 
 
-Console.ReadLine();
+
 
 public class Signaler
 {
@@ -294,3 +294,59 @@ signaler.Check(new JupiterTime(4, 21));
 //signaler.Check(new JupiterTime(1, 17));
 */
 
+
+/*
+ solution 8 works
+ 
+var titanTime = new TitanTime(11, 7);
+//titanTime = new TitanTime(100, 40);
+Console.WriteLine(titanTime);
+
+
+Console.ReadLine();
+
+public class TitanTime
+{
+    public TitanTime(int hours, int minutes)
+    {
+        int totalMinutes = hours * 60 + minutes;
+        TitanMinutes = totalMinutes % 60;  
+        int totalHours = (totalMinutes - TitanMinutes) / 60;
+        TitanHours = totalHours % 900;
+    }
+    public int TitanHours { get; set; }
+    public int TitanMinutes { get; set; }
+
+    public override string ToString()
+    {
+        if(TitanMinutes < 10)
+        {
+            if(TitanHours < 100 && TitanHours > 9)
+            {
+                return $"0{TitanHours}:0{TitanMinutes}";
+            }else if (TitanHours<10)
+            {
+                return $"00{TitanHours}:0{TitanMinutes}";
+            }else
+            {
+              return $"{TitanHours}:0{TitanMinutes}";
+            }
+        }
+        else
+        {
+            if (TitanHours < 100 && TitanHours > 9)
+            {
+                return $"0{TitanHours}:{TitanMinutes}";
+            }
+            else if (TitanHours < 10)
+            {
+                return $"00{TitanHours}:{TitanMinutes}";
+            }
+            else
+            {
+                return $"{TitanHours}:{TitanMinutes}";
+            }
+        }
+    }
+}
+*/
