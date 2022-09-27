@@ -12,6 +12,9 @@ var timeIn20Minutes = time.ChangeMinutes(-739);
 
 //Console.WriteLine(time);
 
+/*
+ solution 6 works 
+ 
 var signaler = new Signaler();
 signaler.AddTimer(new JupiterTime(1, 20));
 signaler.AddTimer(new JupiterTime(2, 20));
@@ -19,6 +22,20 @@ signaler.AddTimer(new JupiterTime(3, 20));
 
 
 signaler.Infrom();
+*/
+
+var signaler = new Signaler();
+signaler.AddTimer(new JupiterTime(2, 00));
+signaler.AddTimer(new JupiterTime(4, 00));
+signaler.AddTimer(new JupiterTime(6, 00));
+
+
+signaler.Check(new JupiterTime(4, 21));
+
+//signaler.Check(new JupiterTime(6, 21));
+
+//signaler.Check(new JupiterTime(1, 17));
+
 Console.ReadLine();
 
 public class Signaler
@@ -58,6 +75,48 @@ public class Signaler
             }
         }
     }
+    public void Check(JupiterTime timeNow)
+    {
+        string nowTime = timeNow.ToString();
+        string nowDec = nowTime[1] + "0";
+        int nowDecimal = int.Parse(nowDec);
+        int nowDigit = nowDecimal / 10;
+
+        string nowMinuteDec = nowTime[3] + nowTime[4] + "0";
+        int nowMinuteDecimal = int.Parse(nowMinuteDec);
+        int nowMinuteDigit = nowMinuteDecimal / 10;
+
+        var allBefore = new List<string>();
+
+
+        foreach (var jupiterTime in signalTimes)
+        {
+
+            string jupiterHour = jupiterTime.ToString();
+            string jupiterDec = jupiterHour[1] + "0";
+            int jupiterDecimal = int.Parse(jupiterDec);
+            int digit = jupiterDecimal / 10;
+
+            string minuteDec = jupiterHour[3] + jupiterHour[4] + "0";
+            int minuteDecimal = int.Parse(minuteDec);
+            int minuteDigit = minuteDecimal / 10;
+
+            //Console.WriteLine($"hour now is: {nowDigit}. hour to compare to is: {digit}");
+
+            if (digit <= nowDigit && nowMinuteDigit >= minuteDigit)
+            {
+                allBefore.Add(jupiterHour);
+                Console.WriteLine(jupiterTime);
+            }
+            
+        }
+        if (allBefore.Count == 0)
+        {
+            Console.WriteLine("no signals needed to be sent yet");
+        }
+
+    }
+
 }
 
 public class JupiterTime
