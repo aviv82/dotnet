@@ -2,7 +2,6 @@
 //Console.WriteLine("Hello, World!");
 
 
-
 var time = new JupiterTime(1, 21);
 //var timeIn1Hour = time.ChangeHours(-888);
 var timeIn20Minutes = time.ChangeMinutes(-739);
@@ -12,29 +11,6 @@ var timeIn20Minutes = time.ChangeMinutes(-739);
 
 //Console.WriteLine(time);
 
-/*
- solution 6 works 
- 
-var signaler = new Signaler();
-signaler.AddTimer(new JupiterTime(1, 20));
-signaler.AddTimer(new JupiterTime(2, 20));
-signaler.AddTimer(new JupiterTime(3, 20));
-
-
-signaler.Infrom();
-*/
-
-var signaler = new Signaler();
-signaler.AddTimer(new JupiterTime(2, 00));
-signaler.AddTimer(new JupiterTime(4, 00));
-signaler.AddTimer(new JupiterTime(6, 00));
-
-
-signaler.Check(new JupiterTime(4, 21));
-
-//signaler.Check(new JupiterTime(6, 21));
-
-//signaler.Check(new JupiterTime(1, 17));
 
 Console.ReadLine();
 
@@ -75,6 +51,7 @@ public class Signaler
             }
         }
     }
+
     public void Check(JupiterTime timeNow)
     {
         string nowTime = timeNow.ToString();
@@ -287,4 +264,33 @@ public class JupiterTime
 }
 */
 
+
+/*
+ solution 6 works 
+ 
+var signaler = new Signaler();
+signaler.AddTimer(new JupiterTime(1, 20));
+signaler.AddTimer(new JupiterTime(2, 20));
+signaler.AddTimer(new JupiterTime(3, 20));
+
+
+signaler.Infrom();
+*/
+
+
+/*
+ solution 7 
+ 
+var signaler = new Signaler();
+signaler.AddTimer(new JupiterTime(2, 00));
+signaler.AddTimer(new JupiterTime(4, 00));
+signaler.AddTimer(new JupiterTime(6, 00));
+
+
+signaler.Check(new JupiterTime(4, 21));
+
+//signaler.Check(new JupiterTime(6, 21));
+
+//signaler.Check(new JupiterTime(1, 17));
+*/
 
