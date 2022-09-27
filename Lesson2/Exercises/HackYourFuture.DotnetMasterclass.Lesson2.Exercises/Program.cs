@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+//Console.WriteLine("Hello, World!");
 
 
 
@@ -10,8 +10,55 @@ var timeIn20Minutes = time.ChangeMinutes(-739);
 
 //time.PrintTime(); <-- old print method, works
 
-Console.WriteLine(time);
+//Console.WriteLine(time);
+
+var signaler = new Signaler();
+signaler.AddTimer(new JupiterTime(1, 20));
+signaler.AddTimer(new JupiterTime(2, 20));
+signaler.AddTimer(new JupiterTime(3, 20));
+
+
+signaler.Infrom();
 Console.ReadLine();
+
+public class Signaler
+{
+    public List<JupiterTime> signalTimes = new();
+
+
+    /*
+    public SignalTime(int sigHour, int sigMinute)
+    {
+        sigHour = Hours;
+        sigMinute = Minutes;
+    }
+
+    
+    public int Hours { get; set; }
+    public int Minutes { get; set; }
+    */
+
+    public void AddTimer(JupiterTime time)
+    {
+        signalTimes.Add(time);
+    }
+
+    public void Infrom()
+    {
+        if (signalTimes.Count == 0)
+        {
+            Console.WriteLine("no timers added yet");
+            return;
+        }
+        else
+        {
+            foreach (var jupiterTime in signalTimes)
+            {
+                Console.WriteLine(jupiterTime);
+            }
+        }
+    }
+}
 
 public class JupiterTime
 {
@@ -63,13 +110,12 @@ public class JupiterTime
     public override string ToString()
     {
         if (Minutes < 10)
-        { var toPrint = $"0{Hours}:0{Minutes}";
-            return toPrint;
+        { 
+            return $"0{Hours}:0{Minutes}";
         }
         else
         {
-            var toPrint = $"0{Hours}:{Minutes}";
-            return toPrint;
+            return $"0{Hours}:{Minutes}";
         }
          
     }
