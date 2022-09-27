@@ -13,7 +13,6 @@ var timeIn20Minutes = time.ChangeMinutes(-739);
 
 
 
-
 public class Signaler
 {
     public List<JupiterTime> signalTimes = new();
