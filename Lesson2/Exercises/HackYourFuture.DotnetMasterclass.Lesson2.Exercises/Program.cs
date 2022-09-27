@@ -2,48 +2,10 @@
 Console.WriteLine("Hello, World!");
 
 
-/* works!
-var time = new JupiterTime();
-time.Hours = 8;
-time.Minutes = 40;
-
-//Console.WriteLine(time.PrintTime);
-
-PrintTime(time);
-//time.PrintTime();
-
-void PrintTime(JupiterTime time)
-{
-    Console.WriteLine($"{time.Hours}:{time.Minutes}");
-}
-
-
-Console.ReadLine();
-
-public class JupiterTime
-{
-    public int Hours
-    {
-        set;
-        get;
-    }
-    public int Minutes
-    {
-        set;
-        get;
-    }
-
-    /*
-    public void PrintTime()
-    {
-        Console.WriteLine($"{Hours}:{Minutes}");
-    }
-}
-    */
 
 var time = new JupiterTime(2, 20);
 //var timeIn1Hour = time.ChangeHours(-888);
-var timeIn20Minutes = time.ChangeMinutes(-140);
+var timeIn20Minutes = time.ChangeMinutes(200);
 
 
 time.PrintTime();
@@ -82,8 +44,19 @@ public class JupiterTime
         int totalMinutes = Hours * 60 + Minutes;
         int newTotalMinutes = totalMinutes + toChange%60;
         int newMinutes = newTotalMinutes % 60;
-        //int newHours = (newTotalMinutes - newMinutes)/60;
-        //ChangeHours(Hours+ ((newTotalMinutes - newMinutes)/60));
+        int newHours = (toChange - toChange % 60) / 60;
+        if (Minutes > 0 && toChange %60 > 0 && newMinutes == 0)
+        {
+            ChangeHours(newHours +1 );
+
+        }
+        else if (Minutes + toChange % 60 < 0 && toChange < 0) {
+            ChangeHours(newHours - 1);
+        }
+        else
+        {
+            ChangeHours(newHours);
+        }
         return Minutes = newMinutes;
     }
 
@@ -98,7 +71,48 @@ public class JupiterTime
 }
 
 
-/*
+/* part 1 works!
+var time = new JupiterTime();
+time.Hours = 8;
+time.Minutes = 40;
+
+//Console.WriteLine(time.PrintTime);
+
+PrintTime(time);
+//time.PrintTime();
+
+void PrintTime(JupiterTime time)
+{
+    Console.WriteLine($"{time.Hours}:{time.Minutes}");
+}
+
+
+Console.ReadLine();
+
+public class JupiterTime
+{
+    public int Hours
+    {
+        set;
+        get;
+    }
+    public int Minutes
+    {
+        set;
+        get;
+    }
+
+    /*
+    public void PrintTime()
+    {
+        Console.WriteLine($"{Hours}:{Minutes}");
+    }
+}
+    */
+
+/* 
+  solution 2 works!
+ 
 public class JupiterTime
 {
     public JupiterTime(int hours, int minutes)
