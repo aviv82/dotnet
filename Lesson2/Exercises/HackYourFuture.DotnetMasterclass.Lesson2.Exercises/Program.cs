@@ -3,13 +3,14 @@ Console.WriteLine("Hello, World!");
 
 
 
-var time = new JupiterTime(2, 20);
+var time = new JupiterTime(1, 21);
 //var timeIn1Hour = time.ChangeHours(-888);
-var timeIn20Minutes = time.ChangeMinutes(200);
+var timeIn20Minutes = time.ChangeMinutes(-739);
 
 
-time.PrintTime();
+//time.PrintTime(); <-- old print method, works
 
+Console.WriteLine(time);
 Console.ReadLine();
 
 public class JupiterTime
@@ -45,7 +46,7 @@ public class JupiterTime
         int newTotalMinutes = totalMinutes + toChange%60;
         int newMinutes = newTotalMinutes % 60;
         int newHours = (toChange - toChange % 60) / 60;
-        if (Minutes > 0 && toChange %60 > 0 && newMinutes == 0)
+        if (Minutes+ toChange % 60 >= 60)
         {
             ChangeHours(newHours +1 );
 
@@ -59,15 +60,31 @@ public class JupiterTime
         }
         return Minutes = newMinutes;
     }
+    public override string ToString()
+    {
+        if (Minutes < 10)
+        { var toPrint = $"0{Hours}:0{Minutes}";
+            return toPrint;
+        }
+        else
+        {
+            var toPrint = $"0{Hours}:{Minutes}";
+            return toPrint;
+        }
+         
+    }
+
+    /*
+    old print method, works
 
     public void PrintTime()
     {
         if (Minutes < 10) {
             Console.WriteLine($"0{Hours}:0{Minutes}");
         }
-        else Console.WriteLine($"{Hours}:{Minutes}");
-
+        else Console.WriteLine($"0{Hours}:{Minutes}");
     }
+    */
 }
 
 
