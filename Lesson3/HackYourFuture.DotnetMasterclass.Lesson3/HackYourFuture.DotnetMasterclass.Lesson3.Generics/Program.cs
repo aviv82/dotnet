@@ -40,9 +40,11 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
 
 
             // Call Generic Method
-            GenericMethodExecutor.Execute();
-            Console.ReadLine();
+            //GenericMethodExecutor.Execute();
 
+            var check = new Exercise1<string, string>();
+            check.Print("bob", "henry");
+            Console.ReadLine();
 
         }
     }
