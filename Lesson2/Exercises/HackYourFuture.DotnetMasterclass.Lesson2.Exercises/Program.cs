@@ -2,17 +2,102 @@
 //Console.WriteLine("Hello, World!");
 
 
-var time = new JupiterTime(1, 21);
+
+
+//var time = new JupiterTime(1, 21);
 //var timeIn1Hour = time.ChangeHours(-888);
-var timeIn20Minutes = time.ChangeMinutes(-739);
+//var timeIn20Minutes = time.ChangeMinutes(-739);
 
 
 //time.PrintTime(); <-- old print method, works
 
-//Console.WriteLine(time);
+
+var time = new JupiterTime(23, 40);
+Console.WriteLine(time);
+
+var ttime = new TitanTime(1000, 40);
+Console.WriteLine(ttime);
+
+var gtime = new GynamedeTime(300, 40);
+Console.WriteLine(gtime);
+
+Console.ReadLine();
 
 
+public class JupiterTime : AlienTime
+{
+    public JupiterTime(int hours, int minutes)
+       : base(hours, minutes, 10) { }
+    
+}
 
+public class TitanTime : AlienTime
+{
+    public TitanTime(int hours, int minutes)
+       : base(hours, minutes, 900) { }
+
+}
+
+public class GynamedeTime : AlienTime
+{
+    public GynamedeTime(int hours, int minutes)
+        : base(hours, minutes, 171) { }
+}
+
+
+public abstract class AlienTime
+{
+    public AlienTime(int hours, int minutes, int hoursInDay)
+    {
+        int totalMinutes = hours * 60 + minutes;
+        Minutes = totalMinutes % 60;
+        int totalHours = (totalMinutes - Minutes) / 60;
+        Hours = totalHours % hoursInDay;
+    }
+    
+    private int _hoursInDay{get; set;}
+    public int Hours { get; set; }
+    public int Minutes { get; set; }
+
+    public override string ToString()
+    {
+        if (Minutes < 10)
+        {
+            if (Hours < 100 && Hours > 9)
+            {
+                return $"0{Hours}:0{Minutes}";
+            }
+            else if (Hours < 10)
+            {
+                return $"00{Hours}:0{Minutes}";
+            }
+            else
+            {
+                return $"{Hours}:0{Minutes}";
+            }
+        }
+        else
+        {
+            if (Hours < 100 && Hours > 9)
+            {
+                return $"0{Hours}:{Minutes}";
+            }
+            else if (Hours < 10)
+            {
+                return $"00{Hours}:{Minutes}";
+            }
+            else
+            {
+                return $"{Hours}:{Minutes}";
+            }
+        }
+    }
+
+}
+
+/*
+ signaler class works 
+ 
 public class Signaler
 {
     public List<JupiterTime> signalTimes = new();
@@ -28,7 +113,7 @@ public class Signaler
     
     public int Hours { get; set; }
     public int Minutes { get; set; }
-    */
+    
 
     public void AddTimer(JupiterTime time)
     {
@@ -94,7 +179,11 @@ public class Signaler
     }
 
 }
+*/
 
+/*
+ class jupiter time works 
+ 
 public class JupiterTime
 {
 
@@ -165,8 +254,8 @@ public class JupiterTime
         }
         else Console.WriteLine($"0{Hours}:{Minutes}");
     }
-    */
 }
+*/
 
 
 /* part 1 works!
