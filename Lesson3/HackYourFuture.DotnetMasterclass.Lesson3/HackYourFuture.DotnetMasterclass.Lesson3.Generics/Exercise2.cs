@@ -11,13 +11,26 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
     // Print the specific properties of the cars as well.
     // E.g.: Jaguar with license plate '1-AZE-123' has colour black
     //          Lamborghini with license plate '2-RTY-456' has 6 windows
+
     public class Exercise2
     {
+
+        public class CarList<T> where T : Car
+        {
+            public CarList<T>(T brand, T license ){
+}
+        }
+
+        public void PrintOut<T1>(T1 value)
+        {
+            Console.WriteLine(value);
+        }
     }
 
 
 
-    public class Car
+
+        public class Car
     {
         public Car(string licensePlate)
         {
@@ -55,4 +68,6 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
         Jaguar,
         Lamborghini
     }
-}
+
+
+    }

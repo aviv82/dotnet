@@ -12,15 +12,20 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.NuGetPackages
     // By installing the package you can now use several overload methods to make the data more readable
     // Check the pacakge's documentation to find out how
     public class Exercise1
+
     {
+
         public void PrintTimestampsInHumanReadableFormat()
         {
+
+            var french = new CultureInfo("fr");
+
             // Print the timestamp as weeks
             var firstTimespan = TimeSpan.FromSeconds(1123453978).Humanize();
             Console.WriteLine(firstTimespan);
 
             // Print this time in French words
-            var time = TimeSpan.FromDays(7).Humanize();
+            var time = TimeSpan.FromDays(7).Humanize(culture: french);
             Console.WriteLine(time);
 
             // Print the number in Romand numerals
