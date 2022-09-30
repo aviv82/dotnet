@@ -11,7 +11,7 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
     {
         public void Print(Tfirst first, Tsecond second)
         {
-            Console.WriteLine($"{first}{second}");
+            Console.WriteLine($"{first} {second}");
         }
     }
 }
