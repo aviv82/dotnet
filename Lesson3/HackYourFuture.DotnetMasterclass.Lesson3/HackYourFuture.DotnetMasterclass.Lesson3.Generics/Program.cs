@@ -54,7 +54,10 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
             var carList = new List<Car> { };
 
             carList.Add(new Jaguar("red", "234-567-89"));
-            var test = new Exercise2();
+            carList.Add(new Lamborghini(6, "987-537-11"));
+
+            var test = new CarList<List<Car>>(carList);
+
 
             test.PrintOut(carList);
             Console.ReadLine();
