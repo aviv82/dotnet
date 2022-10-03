@@ -32,8 +32,6 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
     }
 
 
-
-
         public class Car
     {
         public Car(string licensePlate)
