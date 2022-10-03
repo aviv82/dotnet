@@ -23,11 +23,11 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
 
         public void PrintOut(List<Car> value)
         {
-        foreach (var item in value)
-            {
-                if(item.LicensePlate != null)
-                Console.WriteLine(item.LicensePlate);
-            }
+            foreach (var item in value)
+                if (item.Brand == Brand.Jaguar)
+                    Console.WriteLine($"car is Jaguar, license plate number is: {item.LicensePlate}");
+                else Console.WriteLine($"car is Lamborghini, license plate number is: {item.LicensePlate}");
+            
         }
     }
 
