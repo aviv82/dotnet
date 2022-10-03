@@ -12,26 +12,27 @@ namespace HackYourFuture.DotnetMasterclass.Lesson3.Generics
     // E.g.: Jaguar with license plate '1-AZE-123' has colour black
     //          Lamborghini with license plate '2-RTY-456' has 6 windows
 
+
+    //not great
+
     public class CarList<T>
     {
 
         private T List;
 
-        public CarList(T list){
+        public CarList(T list){ 
             List = list;
         }
 
         public void PrintOut(List<Car> value)
         {
-        foreach (var item in value)
-            {
-                if(item.LicensePlate != null)
-                Console.WriteLine(item.LicensePlate);
-            }
+            foreach (var item in value)
+                if (item.Brand == Brand.Jaguar)
+                    Console.WriteLine($"car is Jaguar, license plate number is: {item.LicensePlate}");
+                else Console.WriteLine($"car is Lamborghini, license plate number is: {item.LicensePlate}");
+            
         }
     }
-
-
 
 
         public class Car
