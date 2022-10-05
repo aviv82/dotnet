@@ -16,5 +16,11 @@ namespace aspdotnet_core_demo.Controllers
         {
             return Ok("this controller is FactoryController");
         }
+        [HttpGet]
+        [Route("[action]/factoryname")]
+        public IActionResult Findname([FromRoute] string factoryName)
+        {
+            return Ok($"factory name os {factoryName}");
+        }
     }
 }
