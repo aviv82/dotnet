@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using aspdotnet_core_demo.Models;
+using aspdotnet_core_demo.dto;
 
 namespace aspdotnet_core_demo.Controllers
 {
@@ -11,6 +13,12 @@ namespace aspdotnet_core_demo.Controllers
     [ApiController]
     public class VehicleController : ControllerBase
     {
+        private List<Vehicle> _vehicles = new(){
+            new Vehicle("tru-677-d4t","lada"),
+            new Vehicle("5t7-777-11", "kia", new Models.User(27, "maurice", "lanelei", Gender.Other)),
+            new Vehicle("er-56-455", "ford", new User(56, "bree", "streetstraat 30", Gender.Other))
+            };
+
         [HttpGet]
         public IActionResult GetString()
         {
@@ -23,6 +31,19 @@ namespace aspdotnet_core_demo.Controllers
             if (wheels < 4)
                 return BadRequest("not enough wheels");
             else return Ok("sweet wheels!");
+        }
+        [HttpGet]
+        [Route("[action]")]
+        public IActionResult BrowseVehicleList(string plate)
+        {
+            Vehicle vehicleFound = null;
+            foreach(var vehicle in _vehicles)
+            {
+                if (vehicle.LicencePlate == plate) vehicleFound = vehicle;
+            }
+            if (vehicleFound == null)
+                return NotFound("no vehicle with that plate number");
+            else return Ok(vehicleFound);
         }
     }
 }
