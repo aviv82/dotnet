@@ -40,7 +40,7 @@ The found user is returned back as response.<br/>
 The action has the HTTP action type GET.
 
 ## Exercise 6
-With the list from exercise 5, create an action which put an user in the list.<br/>
+With the list from exercise 5, create an action which put a user in the list.<br/>
 The action receives a request which is an user.<br/>
 The response is the whole list.<br/>
 The action has the HTTP action type POST.
