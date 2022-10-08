@@ -70,7 +70,7 @@ Create 4 actions:
    The request is a vehicle DTO.<br/>
    You will need to create a vehicle model with the properties of the DTO that you send.<br/>
    The reponse is the created vehicle.
-3. An action which adds an user to the vehicle in the list.<br/>
+3. An action which adds a user to the vehicle in the list.<br/>
    This request contais two parameters, namely the license plate of the vehicle and the Owner.<br/>
    Find the vehicle in the list and add the user to the Owner property.<br/>
    The response is the vehicle with the added user.
