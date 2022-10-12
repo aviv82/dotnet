@@ -84,15 +84,20 @@ namespace aspdotnet_core_demo.Controllers
             int originalLength = _vehicles.Count();
 
             Vehicle vehicleToDelete = null;
+            int index = -1;
 
-            foreach(var vehicle in _vehicles)
+            for (int i = 0; i< _vehicles.Count(); i++)
             {
-                if (vehicle.LicencePlate == plate)
+                if (_vehicles[i].LicencePlate == plate)
                 {
-                    vehicleToDelete = vehicle;
+                    index = i;
+                    vehicleToDelete = _vehicles[i];
                     //_vehicles.Remove(vehicle); <== doesnt work?!
                 }
             }
+            if(index !=-1)
+            _vehicles.Remove(_vehicles[index]); // works!
+
             if (vehicleToDelete == null)
                 return NotFound("no such plate");
             else return Ok($"vehicle that was removed from list was; {vehicleToDelete.LicencePlate}. original vehicle list length was: {originalLength}. current length is: {_vehicles.Count()}");
