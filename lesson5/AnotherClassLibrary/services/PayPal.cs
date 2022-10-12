@@ -6,8 +6,18 @@ namespace AnotherInterfaceDemo.services
         
         public void HandlePayment(double price, string bankAccountNumber)
         {
-            //handle payment
-            Console.WriteLine($"handle payment for {price}, to {bankAccountNumber}");
+            try
+            {
+                // handle payment
+                if (bankAccountNumber == null) throw new Exception("account null");
+                    else
+                    Console.WriteLine($"handle payment for {price}, to {bankAccountNumber}");
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

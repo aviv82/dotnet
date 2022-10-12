@@ -6,7 +6,7 @@ namespace AnotherInterfaceDemo
         public string Name { get; set; }
         public string Address { get; set; }
         public int Id { get; set; }
-        public int BankAcccountNumber { get; set; }
+        public string BankAcccountNumber { get; set; }
     }
 }
 
