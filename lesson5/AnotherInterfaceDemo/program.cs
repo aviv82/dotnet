@@ -1,4 +1,18 @@
-﻿Console.WriteLine("hello world");
+﻿using AnotherInterfaceDemo.services;
+using AnotherInterfaceDemo;
+
+
+
+Console.WriteLine("hello world");
+
+
+var bPost = new BPost();
+var fedex = new FedEx();
+
+var webshop = new WebShop();
+
+/*
+// example of general interfaces:
 
 List<IFueledVehicle> fueledVehicles = new List<IFueledVehicle>();
 List<IVehicle> vehicles = new List<IVehicle>();
@@ -73,3 +87,4 @@ interface IFueledVehicle
 {
     int GetCarbonFootprint();
 }
+*/
