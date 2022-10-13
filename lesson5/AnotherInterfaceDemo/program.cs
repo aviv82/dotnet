@@ -2,7 +2,6 @@
 using AnotherInterfaceDemo;
 
 
-
 Console.WriteLine("hello world");
 
 

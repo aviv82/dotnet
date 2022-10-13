@@ -22,6 +22,10 @@ public class WebShop
         //_paymentService = paymentService;
     }
 
+    public WebShop()
+    {
+    }
+
     // with interface, much shorter, more modular:
     // here we will use a method injection for the payment and dependency injection for shipping
     public void OrderItem(Product product, Person person ,IPaymentService paymentService)
