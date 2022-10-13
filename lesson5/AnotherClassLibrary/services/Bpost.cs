@@ -1,7 +1,10 @@
 ﻿using System;
+using AnotherInterfaceDemo.services.interfaces;
+
+
 namespace AnotherInterfaceDemo.services
 {
-    public class BPost
+    public class BPost :IShippingCompany
     {
         public void Ship(string address)
         {
