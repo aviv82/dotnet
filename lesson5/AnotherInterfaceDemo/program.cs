@@ -8,7 +8,24 @@ Console.WriteLine("hello world");
 var bPost = new BPost();
 var fedex = new FedEx();
 
-var webshop = new WebShop();
+var master = new MasterCard();
+var payapl = new PayPal();
+
+var webshop = new WebShop(bPost);
+
+var product = new Product();
+product.Price = 5;
+product.Name = "faucet";
+product.Id = 1;
+product.Description = "its a faucet";
+
+var person = new Person();
+
+person.BankAcccountNumber = "ddddddddddd";
+person.Address = "onestraat 1";
+
+webshop.OrderItem(product, person, master);
+ 
 
 /*
 // example of general interfaces:
