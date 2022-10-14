@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherInterfaceDemo", "Ano
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnotherClassLibrary", "AnotherClassLibrary\AnotherClassLibrary.csproj", "{5AAAFEC4-EDB0-4DA1-B79F-4F81FFAF2CC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopAPI", "WebShopAPI\WebShopAPI.csproj", "{2EB01426-0F8E-4840-96C3-1FA29F9DC080}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5AAAFEC4-EDB0-4DA1-B79F-4F81FFAF2CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AAAFEC4-EDB0-4DA1-B79F-4F81FFAF2CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AAAFEC4-EDB0-4DA1-B79F-4F81FFAF2CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB01426-0F8E-4840-96C3-1FA29F9DC080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB01426-0F8E-4840-96C3-1FA29F9DC080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB01426-0F8E-4840-96C3-1FA29F9DC080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB01426-0F8E-4840-96C3-1FA29F9DC080}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

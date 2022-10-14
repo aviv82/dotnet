@@ -16,7 +16,7 @@ public class WebShop
 
     // we inject a value for the generic interface
 
-    public WebShop(IShippingCompany shippingCompany, IPaymentService paymentService )
+    public WebShop(IShippingCompany shippingCompany )
     {
         _shippingCompany = shippingCompany;
         //_paymentService = paymentService;
