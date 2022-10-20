@@ -28,11 +28,16 @@ void ReadRestaurantRecords()
         dataSet.Tables[1].TableName = "orders";
 
         var customers = dataSet.Tables["Customers"].AsEnumerable().Select(r => r["Name"]);
-        var orders = dataSet.Tables["Orders"].AsEnumerable();
+        var orders = dataSet.Tables["Orders"].AsEnumerable().Select(r => r["Description"]);
 
         foreach (var customer in customers)
         {
             Console.WriteLine(customer);
+        }
+
+        foreach (var order in orders)
+        {
+            Console.WriteLine(order);
         }
 
         /*
