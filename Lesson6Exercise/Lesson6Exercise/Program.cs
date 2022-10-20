@@ -17,10 +17,25 @@ void ReadRestaurantRecords()
     try
     {
         connection.Open();
-        var queryString = "SELECT * FROM Customers; SELECT * FROM Orders;";
-        SqlCommand command = new SqlCommand(queryString, connection);
-        SqlDataReader reader = command.ExecuteReader();
+        //var queryString = "SELECT * FROM Customers; SELECT * FROM Orders;";
+        //SqlCommand command = new SqlCommand(queryString, connection);
+        //SqlDataReader reader = command.ExecuteReader();
+        var dataRead = new SqlDataAdapter("SELECT * FROM Customers; SELECT * FROM Orders;", connection);
+        var dataSet = new DataSet();
+        dataRead.Fill(dataSet);
 
+        dataSet.Tables[0].TableName = "customers";
+        dataSet.Tables[1].TableName = "orders";
+
+        var customers = dataSet.Tables["Customers"].AsEnumerable().Select(r => r["Name"]);
+        var orders = dataSet.Tables["Orders"].AsEnumerable();
+
+        foreach (var customer in customers)
+        {
+            Console.WriteLine(customer);
+        }
+
+        /*
         while (reader.Read())
         {
             for (int i =0; i< reader.FieldCount; i++)
@@ -31,6 +46,7 @@ void ReadRestaurantRecords()
         }
         reader.Close();
         Console.WriteLine("done and dusted");
+        */
     }
     catch (Exception ex)
     {
