@@ -6,8 +6,8 @@ Console.WriteLine("Hello, World!");
 
 string connectionString = "Server=localhost; Database=RestaurantDb; User Id=sa; Password=MyPassword123#";
 
-ReadCustomerRecords();
-//ReadRestaurantRecords();
+//ReadCustomerRecords();
+ReadRestaurantRecords();
 Console.ReadLine();
 
 
@@ -240,16 +240,22 @@ void ReadRestaurantRecords()
 
         
         var dataRead = new SqlDataAdapter("SELECT * FROM Customers; SELECT * FROM Orders;", connection);
-        var dataSet = new DataSet();
+        var dataSet = new DataSet("restaurant");
         dataRead.Fill(dataSet);
 
-        dataSet.Tables[0].TableName = "customers";
-        dataSet.Tables[1].TableName = "orders";
+
+        foreach (DataRow r in dataSet.Tables[0].Rows)
+        {
+            Console.WriteLine($"{r[0]}");
+        }
+
+        //dataSet.Tables[0].TableName = "customers";
+        //dataSet.Tables[1].TableName = "orders";
 
         //var customers = dataSet.Tables["Customers"].AsEnumerable().Select(r => r["Name"]);
         //var orders = dataSet.Tables["Orders"].AsEnumerable().Select(r => r["Description"]);
 
-        Console.WriteLine(dataSet.Tables[0].Columns[0]);
+        //Console.WriteLine(dataSet.Tables[0].AsDataView());
 
        /*
        Console.WriteLine("Customers:");
