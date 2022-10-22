@@ -238,15 +238,47 @@ void ReadRestaurantRecords()
         SqlDataReader reader = command.ExecuteReader();
         */
 
-        
         var dataRead = new SqlDataAdapter("SELECT * FROM Customers; SELECT * FROM Orders;", connection);
         var dataSet = new DataSet("restaurant");
         dataRead.Fill(dataSet);
 
+        dataSet.Tables[0].TableName = "customers";
+        dataSet.Tables[1].TableName = "orders";
 
-        foreach (DataRow r in dataSet.Tables[0].Rows)
+        Console.WriteLine();
+        Console.WriteLine(dataSet.DataSetName);
+        Console.WriteLine();
+
+        foreach (DataTable t in dataSet.Tables)
         {
-            Console.WriteLine($"{r[0]}");
+            Console.WriteLine($"{t.TableName}");
+            Console.WriteLine();
+            if (t.TableName == "customers")
+            {
+                t.Columns[0].ColumnName = "id";
+                t.Columns[1].ColumnName = "name";
+                t.Columns[2].ColumnName = "age";
+            } else
+            {
+                t.Columns[0].ColumnName = "id";
+                t.Columns[1].ColumnName = "number";
+                t.Columns[2].ColumnName = "description";
+                t.Columns[3].ColumnName = "customer id";
+            }
+
+            for(int i = 0; i < t.Columns.Count; i++)
+            {
+                Console.Write($"\t{t.Columns[i].ColumnName}");
+            }
+            Console.WriteLine();
+            foreach (DataRow r in t.Rows)
+            {
+                for (int i = 0; i < t.Columns.Count; i++)
+                {
+                    Console.Write($"\t{r[i]}");
+                }
+                    Console.WriteLine();
+            }
         }
 
         //dataSet.Tables[0].TableName = "customers";
