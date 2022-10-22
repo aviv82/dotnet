@@ -6,7 +6,8 @@ Console.WriteLine("Hello, World!");
 
 string connectionString = "Server=localhost; Database=RestaurantDb; User Id=sa; Password=MyPassword123#";
 
-ReadRestaurantRecords();
+ReadCustomerRecords();
+//ReadRestaurantRecords();
 Console.ReadLine();
 
 
@@ -20,7 +21,7 @@ void ReadCustomerRecords()
         var queryString = "SELECT * FROM Customers; SELECT * FROM Orders;";
         SqlCommand command = new SqlCommand(queryString, connection);
         SqlDataReader reader = command.ExecuteReader();
-        
+
 
         /*
         var dataRead = new SqlDataAdapter("SELECT * FROM Customers; SELECT * FROM Orders;", connection);
@@ -49,20 +50,38 @@ void ReadCustomerRecords()
             Console.WriteLine(order);
         }
         */
-        
 
-        
-        while (reader.Read())
-        {
-            for (int i =0; i< reader.FieldCount; i++)
+      
+            while (reader.Read())
             {
-                Console.Write($"\t{reader[i]}");
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    Console.Write($"\t{reader[i]}");
+                }
+                Console.WriteLine();
+            }
+            //reader.NextResult();
+        reader.Close();
+        Console.WriteLine("done and dusted");
+
+        // this is how to get both!
+        /*
+        while (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    Console.Write($"\t{reader[i]}");
+                }
+                Console.WriteLine();
             }
             Console.WriteLine();
+        reader.NextResult();
         }
         reader.Close();
         Console.WriteLine("done and dusted");
-        
+        */
         
     }
     catch (Exception ex)
@@ -230,7 +249,7 @@ void ReadRestaurantRecords()
         //var customers = dataSet.Tables["Customers"].AsEnumerable().Select(r => r["Name"]);
         //var orders = dataSet.Tables["Orders"].AsEnumerable().Select(r => r["Description"]);
 
-        Console.WriteLine(dataSet);
+        Console.WriteLine(dataSet.Tables[0].Columns[0]);
 
        /*
        Console.WriteLine("Customers:");
