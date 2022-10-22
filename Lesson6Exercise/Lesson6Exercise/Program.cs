@@ -7,7 +7,7 @@ Console.WriteLine("Hello, World!");
 string connectionString = "Server=localhost; Database=RestaurantDb; User Id=sa; Password=MyPassword123#";
 
 //ReadCustomerRecords();
-ReadRestaurantRecords();
+//ReadRestaurantRecords();
 Console.ReadLine();
 
 
@@ -322,6 +322,31 @@ void ReadRestaurantRecords()
         reader.Close();
         Console.WriteLine("done and dusted");
         */
+
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
+    finally
+    {
+        connection.Close();
+    }
+}
+
+void UpdateCustomers()
+{
+    using SqlConnection connection = new SqlConnection(connectionString);
+
+    Console.WriteLine("select customer name to update");
+    var toUpdate = Console.ReadLine();
+
+    Console.WriteLine("choose new name for customer");
+    var newName = Console.ReadLine();
+
+    try
+    {
+        SqlDataAdapter adapter = new SqlDataAdapter("", connectionString);
 
     }
     catch (Exception ex)
